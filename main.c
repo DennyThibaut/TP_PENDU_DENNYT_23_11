@@ -7,6 +7,32 @@ void InitMotATrouver(char MotCherche[],char MotTrouve[]);
 void LetreCherchee(char MotCherche[],char Lettre,char MotTrouve[],int vie);
 void CondiFin(int vie);
 
+
+
+
+
+int main ()
+{
+    char MotCherche[TAILLE];
+    char MotTrouve[TAILLE];
+    char Lettre=' ';
+    int vie=5;
+    int replay;
+    do{
+        RemplirMot(MotCherche);
+        InitMotATrouver(MotCherche,MotTrouve);
+        LetreCherchee(MotCherche,Lettre,MotTrouve,vie);
+        CondiFin(vie);
+        printf("T'as envie de rejouer ? (1 Oui, 0 Non)");
+        scanf("%d",&replay);
+        if (replay==0){
+        system("cls");
+        }
+    }
+    while (replay != 0);
+    system("pause");
+    return 0;
+}
 // Fonction demandant le mot cherché
 void RemplirMot(char MotCherche[]){
     do{
@@ -78,31 +104,4 @@ void CondiFin(int vie){
     else{
         printf("Reflechis mieux la prochaine fois \n");
     }
-}
-
-
-
-
-
-int main ()
-{
-    char MotCherche[TAILLE];
-    char MotTrouve[TAILLE];
-    char Lettre=' ';
-    int vie=5;
-    int replay;
-    do{
-        RemplirMot(MotCherche);
-        InitMotATrouver(MotCherche,MotTrouve);
-        LetreCherchee(MotCherche,Lettre,MotTrouve,vie);
-        CondiFin(vie);
-        printf("T'as envie de rejouer ? (1 Oui, 0 Non)");
-        scanf("%d",&replay);
-        if (replay==0){
-        system("cls");
-        }
-    }
-    while (replay != 0);
-    system("pause");
-    return 0;
 }
